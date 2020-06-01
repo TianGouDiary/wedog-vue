@@ -425,15 +425,16 @@
             'weather_info': '',
             'create_time': new Date().Format("yyyy-MM-dd hh:mm:ss"),
         };
+
         $.ajax(
             {
-                url: 'https://jkl201906112027.info/wedog/getLetter',
+                url: 'http://127.0.0.1:8088/api/v1/getRandomLetter',
                 type: 'get',
                 async: false,
                 success: function (res) {
-                    console.log(res)
-                    if (res.code == 0) {
-                        letterInfo = res.data.letterInfo;
+                    console.log('getRandomLetter:', res);
+                    if (res.errCode === 0) {
+                        letterInfo = res.data;
                     }
                 },
                 error:function (err) {
